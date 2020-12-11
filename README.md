@@ -25,5 +25,5 @@ THEN I am taken to the corresponding section of the README
 This includes a gif example and shows the user how to use the generator.
 the gif is found in the video folder as well as below.
 
-![gif]()
+![gif](https://github.com/CalvinEstrada/readme-generator/blob/Master/video/generator-in-use.webm?raw=true)
 
