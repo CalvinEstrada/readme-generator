@@ -11,7 +11,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 const questions = [
     {
         type: 'input',
-        message: "What is your GitHub username? (@ Not Needed)",
+        message: "GitHub username? (@ Not Needed)",
         name: 'username',
         default: 'CalvinEstrada',
         validate: function (answer) {
@@ -35,7 +35,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: "What is the title of your project?",
+        message: "Title your project",
         name: 'title',
         default: 'Project Title',
         validate: function (answer) {
@@ -69,17 +69,17 @@ const questions = [
     },
     {
         type: 'input',
-        message: "If applicable, provide guidelines on how other developers can contribute to your project.",
+        message: "Provide guidelines on how other developers can contribute to your project, if needed.",
         name: 'contributing'
     },
     {
         type: 'input',
-        message: "If applicable, provide any tests written for your application and provide examples on how to run them.",
+        message: "Provide any tests written for your application and provide examples on how to run them if needed.",
         name: 'tests'
     },
     {
         type: 'list',
-        message: "Choose a license for your project.",
+        message: "License for your project?",
         choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'ISC', 'Boost Software License 1.0', 'The Unlicense'],
         name: 'license'
     }
@@ -105,11 +105,11 @@ async function init() {
         
         const userResponses = await inquirer.prompt(questions);
         console.log("Your responses: ", userResponses);
-        console.log("Thank you for your responses! Fetching your GitHub data");
+        console.log("Fetching your GitHub data");
     
         
         const userInfo = await api.getUser(userResponses);
-        console.log("Your GitHub user info: ", userInfo);
+        console.log("GitHub user info: ", userInfo);
     
         
         console.log("Generating your README...")
@@ -117,7 +117,7 @@ async function init() {
         console.log(markdown);
     
         
-        await writeFileAsync('ExampleREADME.md', markdown);
+        await writeFileAsync('SampleREADME.md', markdown);
 
     } catch (error) {
         console.log(error);
